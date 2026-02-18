@@ -22,10 +22,6 @@ const App: React.FC = () => {
       <section className="pt-24 sm:pt-32 pb-16 sm:pb-20 px-6">
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-10 sm:gap-16">
           <div className="flex-1 text-center lg:text-left space-y-6 sm:space-y-8">
-            <div className="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-blue-50 border border-blue-100 text-blue-600 text-[10px] sm:text-xs font-black uppercase tracking-widest animate-pulse">
-              <span>NEW:</span>
-              <span>Gemini Voice Agents Live</span>
-            </div>
             <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black text-slate-900 leading-[1.1] tracking-tight">
               Scale Your Business with <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">AI-Powered</span> Communication.
             </h1>
