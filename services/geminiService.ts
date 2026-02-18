@@ -1,8 +1,14 @@
 
 import { GoogleGenAI } from "@google/genai";
 
-// Use the API key directly from process.env.API_KEY
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+// Lazy-init so missing API key on Vercel doesn't crash the app at load time
+function getClient(): GoogleGenAI | null {
+  const key = process.env.API_KEY;
+  if (!key || key === "undefined") return null;
+  return new GoogleGenAI({ apiKey: key });
+}
+
+let ai: GoogleGenAI | null = null;
 
 const SYSTEM_INSTRUCTION = `
 You are Astrid, the official AI sales representative for "Astrid Scale". 
@@ -19,6 +25,10 @@ If asked about pricing, say it's customized based on volume and to reach out via
 
 export const getAstridResponse = async (userMessage: string, history: { role: string, parts: { text: string }[] }[]) => {
   try {
+    ai = ai ?? getClient();
+    if (!ai) {
+      return "Chat is currently offline. Please reach out via our contact form or email team@astridscale.com—we’d love to help!";
+    }
     const response = await ai.models.generateContent({
       model: 'gemini-3-flash-preview',
       contents: [
