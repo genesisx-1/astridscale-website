@@ -55,7 +55,8 @@ const Navbar: React.FC<NavbarProps> = ({ onPageChange, currentPage }) => {
               {SERVICES.map((s) => (
                 <button key={s.id} onClick={() => navigate(s.slug)} className="w-full text-left px-5 py-3 hover:bg-blue-50 text-slate-700 hover:text-blue-600 transition-colors flex items-center group/item">
                   <div className="mr-3 p-2 bg-slate-50 rounded-xl group-hover/item:bg-blue-100 transition-colors text-blue-600">
-                    {React.cloneElement(s.icon as React.ReactElement, { className: 'w-5 h-5' })}
+                    {/* Fix: Explicitly cast to ReactElement with optional className to satisfy cloneElement typing */}
+                    {React.cloneElement(s.icon as React.ReactElement<{ className?: string }>, { className: 'w-5 h-5' })}
                   </div>
                   <span className="font-bold text-sm tracking-tight">{s.title}</span>
                 </button>
@@ -95,7 +96,8 @@ const Navbar: React.FC<NavbarProps> = ({ onPageChange, currentPage }) => {
                 <div key={service.id} className="bg-white p-6 rounded-3xl shadow-sm border border-slate-100 flex flex-col items-start space-y-3">
                   <div className="flex items-center space-x-3">
                     <div className="w-10 h-10 bg-blue-50 rounded-xl flex items-center justify-center text-blue-600">
-                      {React.cloneElement(service.icon as React.ReactElement, { className: 'w-5 h-5' })}
+                      {/* Fix: Explicitly cast to ReactElement with optional className to satisfy cloneElement typing */}
+                      {React.cloneElement(service.icon as React.ReactElement<{ className?: string }>, { className: 'w-5 h-5' })}
                     </div>
                     <h4 className="text-lg font-extrabold text-slate-900">{service.title}</h4>
                   </div>

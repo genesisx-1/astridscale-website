@@ -1,7 +1,8 @@
 
 import { GoogleGenAI } from "@google/genai";
 
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY || '' });
+// Use the API key directly from process.env.API_KEY
+const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
 
 const SYSTEM_INSTRUCTION = `
 You are Astrid, the official AI sales representative for "Astrid Scale". 
@@ -27,7 +28,7 @@ export const getAstridResponse = async (userMessage: string, history: { role: st
       config: {
         systemInstruction: SYSTEM_INSTRUCTION,
         temperature: 0.7,
-        maxOutputTokens: 200,
+        // Removed maxOutputTokens to prevent potential blocking without explicit thinkingBudget configuration
       }
     });
 
