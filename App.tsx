@@ -165,29 +165,43 @@ const App: React.FC = () => {
           <h1 className="text-4xl sm:text-5xl font-black text-slate-900 tracking-tight mb-4">Software & Web Development</h1>
           <p className="text-xl text-slate-500 font-medium max-w-2xl mx-auto">Custom software and websites we’ve built for clients. Click any project to open it in a new tab.</p>
         </div>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
           {PORTFOLIO_SITES.map((site) => (
-            <a
+            <div
               key={site.url}
-              href={site.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group block bg-white rounded-[2rem] border border-slate-100 shadow-sm hover:shadow-2xl hover:shadow-blue-100 hover:border-blue-100 transition-all duration-300 overflow-hidden"
+              className="group bg-white rounded-[2rem] border border-slate-100 shadow-sm hover:shadow-2xl hover:shadow-blue-100 hover:border-blue-100 transition-all duration-300 overflow-hidden"
             >
-              <div className="aspect-video bg-slate-100 flex items-center justify-center group-hover:bg-blue-50 transition-colors">
-                <svg className="w-12 h-12 text-slate-300 group-hover:text-blue-400 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path>
-                </svg>
+              <div className="relative aspect-video bg-slate-100 overflow-hidden">
+                <iframe
+                  src={site.url}
+                  className="w-full h-full border-0"
+                  style={{ 
+                    width: '200%', 
+                    height: '200%',
+                    transform: 'scale(0.5)',
+                    transformOrigin: 'top left',
+                    pointerEvents: 'none'
+                  }}
+                  title={`Preview of ${site.name}`}
+                  loading="lazy"
+                  sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
+                />
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white pointer-events-none"></div>
               </div>
               <div className="p-6">
                 <h3 className="text-lg font-black text-slate-900 mb-1 group-hover:text-blue-600 transition-colors">{site.name}</h3>
-                <p className="text-sm text-slate-400 font-medium truncate">{new URL(site.url).hostname}</p>
-                <span className="inline-flex items-center mt-3 text-blue-600 font-bold text-xs uppercase tracking-widest">
+                <p className="text-sm text-slate-400 font-medium truncate mb-4">{new URL(site.url).hostname}</p>
+                <a
+                  href={site.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center text-blue-600 font-bold text-xs uppercase tracking-widest hover:text-blue-700 transition-colors"
+                >
                   Open site
                   <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
-                </span>
+                </a>
               </div>
-            </a>
+            </div>
           ))}
         </div>
         <div className="mt-12 sm:mt-16 text-center">
