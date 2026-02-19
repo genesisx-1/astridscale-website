@@ -138,7 +138,7 @@ const Navbar: React.FC<NavbarProps> = ({ onPageChange, currentPage }) => {
               <p className="text-[10px] font-black text-slate-400 uppercase tracking-[0.3em] text-center">Contact Directly</p>
               <div className="flex flex-col items-center space-y-1">
                 <a href="mailto:team@astridscale.com" className="block text-blue-400 font-bold text-base hover:text-blue-300 transition-colors">team@astridscale.com</a>
-                <a href="tel:2144224939" className="block text-white font-black text-2xl tracking-tight">214-422-4939</a>
+                <a href="tel:+16823104726" className="block text-white font-black text-2xl tracking-tight">+1 (682) 310 4726</a>
               </div>
               <a 
                 href={CALENDLY_URL}

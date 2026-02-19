@@ -241,7 +241,7 @@ const App: React.FC = () => {
               </div>
               <div>
                 <p className="text-[10px] font-black text-blue-600 uppercase tracking-widest mb-1">Call Our Office</p>
-                <a href="tel:2144224939" className="text-xl sm:text-2xl font-black text-slate-900 hover:text-blue-600 transition-colors">214-422-4939</a>
+                <a href="tel:+16823104726" className="text-xl sm:text-2xl font-black text-slate-900 hover:text-blue-600 transition-colors">+1 (682) 310 4726</a>
               </div>
             </div>
           </div>
@@ -306,7 +306,7 @@ const App: React.FC = () => {
             <p className="text-slate-400 font-medium max-w-sm text-sm leading-relaxed">The leading platform for AI-driven business communications and lead generation. We build the future of voice interactions for enterprise scale.</p>
             <div className="space-y-3">
               <p className="text-sm font-black text-slate-900 tracking-tight">team@astridscale.com</p>
-              <p className="text-sm font-black text-slate-900 tracking-tight">214-422-4939</p>
+              <p className="text-sm font-black text-slate-900 tracking-tight">+1 (682) 310 4726</p>
             </div>
           </div>
           
