@@ -35,7 +35,38 @@ export const SERVICES: Service[] = [
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path>
       </svg>
     )
+  },
+  {
+    id: 'software',
+    title: 'Software Development',
+    slug: 'software-and-web',
+    description: 'Custom software and applications built for scale, from web apps to internal tools and integrations.',
+    icon: (
+      <svg className="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+      </svg>
+    )
+  },
+  {
+    id: 'websites',
+    title: 'Websites',
+    slug: 'software-and-web',
+    description: 'Modern, fast websites and web apps that convert visitors into customers and grow your brand.',
+    icon: (
+      <svg className="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path>
+      </svg>
+    )
   }
+];
+
+export const CALENDLY_URL = 'https://calendly.com/team-astridscale/30min';
+
+export const PORTFOLIO_SITES = [
+  { name: 'Astrid Social', url: 'https://astrid.social' },
+  { name: 'NTX Limo', url: 'https://ntxlimo.com' },
+  { name: 'LXM Auto', url: 'https://lxmauto.com' },
+  { name: 'Shrestha Realty', url: 'https://sirealestatellc.com' },
 ];
 
 export const BENEFITS = [

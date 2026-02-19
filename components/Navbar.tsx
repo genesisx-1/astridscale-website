@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Page } from '../types';
-import { SERVICES } from '../constants';
+import { SERVICES, CALENDLY_URL } from '../constants';
 
 interface NavbarProps {
   onPageChange: (page: Page) => void;
@@ -47,7 +47,7 @@ const Navbar: React.FC<NavbarProps> = ({ onPageChange, currentPage }) => {
         <div className="hidden md:flex items-center space-x-8 text-sm font-semibold text-slate-600">
           <button onClick={() => navigate('home')} className={`hover:text-blue-600 transition-colors ${currentPage === 'home' ? 'text-blue-600' : ''}`}>Home</button>
           <div className="relative group">
-            <button className={`flex items-center hover:text-blue-600 transition-colors ${['voice-receptionist', 'lead-generation', 'text-messaging'].includes(currentPage) ? 'text-blue-600' : ''}`}>
+            <button className={`flex items-center hover:text-blue-600 transition-colors ${['voice-receptionist', 'lead-generation', 'text-messaging', 'software-and-web'].includes(currentPage) ? 'text-blue-600' : ''}`}>
               Services
               <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
             </button>
@@ -64,7 +64,7 @@ const Navbar: React.FC<NavbarProps> = ({ onPageChange, currentPage }) => {
             </div>
           </div>
           <button onClick={() => navigate('contact')} className={`hover:text-blue-600 transition-colors ${currentPage === 'contact' ? 'text-blue-600' : ''}`}>Contact</button>
-          <button onClick={() => navigate('contact')} className="px-6 py-2.5 bg-slate-900 text-white rounded-full hover:bg-blue-600 transition-all transform hover:scale-105 shadow-md text-xs uppercase tracking-widest font-bold">Get Started</button>
+          <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className="px-6 py-2.5 bg-slate-900 text-white rounded-full hover:bg-blue-600 transition-all transform hover:scale-105 shadow-md text-xs uppercase tracking-widest font-bold">Get Started</a>
         </div>
 
         {/* Mobile Hamburger Toggle */}
@@ -140,12 +140,14 @@ const Navbar: React.FC<NavbarProps> = ({ onPageChange, currentPage }) => {
                 <a href="mailto:team@astridscale.com" className="block text-blue-400 font-bold text-base hover:text-blue-300 transition-colors">team@astridscale.com</a>
                 <a href="tel:2144224939" className="block text-white font-black text-2xl tracking-tight">214-422-4939</a>
               </div>
-              <button 
-                onClick={() => navigate('contact')}
-                className="w-full py-4.5 bg-blue-600 text-white rounded-2xl font-black text-sm uppercase tracking-widest shadow-lg shadow-blue-500/30 active:scale-95 transition-all mt-4"
+              <a 
+                href={CALENDLY_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block w-full py-4.5 bg-blue-600 text-white rounded-2xl font-black text-sm uppercase tracking-widest shadow-lg shadow-blue-500/30 active:scale-95 transition-all mt-4 text-center"
               >
                 Book a Free Demo
-              </button>
+              </a>
             </div>
           </div>
         </div>

@@ -1,7 +1,7 @@
 
 import { ReactNode } from 'react';
 
-export type Page = 'home' | 'voice-receptionist' | 'lead-generation' | 'text-messaging' | 'contact';
+export type Page = 'home' | 'voice-receptionist' | 'lead-generation' | 'text-messaging' | 'software-and-web' | 'contact';
 
 export interface Service {
   id: string;

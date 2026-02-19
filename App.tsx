@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import AstridAssistant from './components/AstridAssistant';
-import { SERVICES, BENEFITS } from './constants';
+import { SERVICES, BENEFITS, CALENDLY_URL, PORTFOLIO_SITES } from './constants';
 import { Page } from './types';
 
 const App: React.FC = () => {
@@ -29,9 +29,9 @@ const App: React.FC = () => {
               Astrid Scale automates your front office. From human-like voice receptionists to proactive lead generation, we help you close more deals without hiring more staff.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4">
-              <button onClick={() => setCurrentPage('contact')} className="px-8 py-4.5 bg-blue-600 text-white rounded-2xl font-black shadow-2xl shadow-blue-200 hover:bg-blue-700 transition-all transform hover:-translate-y-1 text-center text-sm uppercase tracking-widest">
+              <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className="px-8 py-4.5 bg-blue-600 text-white rounded-2xl font-black shadow-2xl shadow-blue-200 hover:bg-blue-700 transition-all transform hover:-translate-y-1 text-center text-sm uppercase tracking-widest">
                 Book a Free Demo
-              </button>
+              </a>
               <a href="#services" className="px-8 py-4.5 bg-white text-slate-700 border border-slate-200 rounded-2xl font-black hover:bg-slate-50 transition-all text-center text-sm uppercase tracking-widest">
                 Our Solutions
               </a>
@@ -57,7 +57,7 @@ const App: React.FC = () => {
             <h2 className="text-blue-600 font-black tracking-[0.3em] uppercase text-[10px] sm:text-xs">Our Expertise</h2>
             <h3 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">Communication Engineered for Growth</h3>
           </div>
-          <div className="grid md:grid-cols-3 gap-6 sm:gap-10">
+          <div className="grid md:grid-cols-3 lg:grid-cols-3 gap-6 sm:gap-10">
             {SERVICES.map((s) => (
               <div key={s.id} className="group p-8 sm:p-10 rounded-[2.5rem] bg-slate-50/50 hover:bg-white hover:shadow-2xl hover:shadow-blue-100 transition-all border border-slate-100 hover:border-blue-100">
                 <div className="text-4xl mb-8 bg-white w-16 h-16 rounded-2xl flex items-center justify-center shadow-sm group-hover:scale-110 group-hover:bg-blue-600 group-hover:text-white transition-all duration-300">
@@ -131,9 +131,9 @@ const App: React.FC = () => {
               <p className="text-slate-500 text-base sm:text-lg leading-relaxed font-medium">
                 Elevate your business communication with our {pageContent.title.toLowerCase()}. We combine cutting-edge large language models with enterprise reliability.
               </p>
-              <button onClick={() => setCurrentPage('contact')} className="w-full sm:w-auto px-8 py-4.5 bg-blue-600 text-white rounded-2xl font-black shadow-xl shadow-blue-200 hover:bg-blue-700 transition-all text-sm uppercase tracking-widest">
+              <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className="inline-block w-full sm:w-auto px-8 py-4.5 bg-blue-600 text-white rounded-2xl font-black shadow-xl shadow-blue-200 hover:bg-blue-700 transition-all text-sm uppercase tracking-widest text-center">
                 Get Started
-              </button>
+              </a>
             </div>
             <div className="rounded-[2.5rem] overflow-hidden shadow-2xl border-4 sm:border-8 border-white order-1 lg:order-2">
               <img src={pageContent.image} className="w-full h-[300px] sm:h-[450px] object-cover" alt={service.title} />
@@ -153,6 +153,51 @@ const App: React.FC = () => {
       </div>
     );
   };
+
+  const renderPortfolio = () => (
+    <div className="pt-24 sm:pt-32 pb-20 px-6 animate-in fade-in slide-in-from-bottom-4 duration-700">
+      <div className="max-w-7xl mx-auto">
+        <button onClick={() => setCurrentPage('home')} className="mb-8 text-blue-600 flex items-center font-black text-xs uppercase tracking-widest hover:translate-x-[-4px] transition-transform">
+          <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+          Back to Home
+        </button>
+        <div className="text-center mb-12 sm:mb-16">
+          <h1 className="text-4xl sm:text-5xl font-black text-slate-900 tracking-tight mb-4">Software & Web Development</h1>
+          <p className="text-xl text-slate-500 font-medium max-w-2xl mx-auto">Custom software and websites we’ve built for clients. Click any project to open it in a new tab.</p>
+        </div>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+          {PORTFOLIO_SITES.map((site) => (
+            <a
+              key={site.url}
+              href={site.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group block bg-white rounded-[2rem] border border-slate-100 shadow-sm hover:shadow-2xl hover:shadow-blue-100 hover:border-blue-100 transition-all duration-300 overflow-hidden"
+            >
+              <div className="aspect-video bg-slate-100 flex items-center justify-center group-hover:bg-blue-50 transition-colors">
+                <svg className="w-12 h-12 text-slate-300 group-hover:text-blue-400 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path>
+                </svg>
+              </div>
+              <div className="p-6">
+                <h3 className="text-lg font-black text-slate-900 mb-1 group-hover:text-blue-600 transition-colors">{site.name}</h3>
+                <p className="text-sm text-slate-400 font-medium truncate">{new URL(site.url).hostname}</p>
+                <span className="inline-flex items-center mt-3 text-blue-600 font-bold text-xs uppercase tracking-widest">
+                  Open site
+                  <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                </span>
+              </div>
+            </a>
+          ))}
+        </div>
+        <div className="mt-12 sm:mt-16 text-center">
+          <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className="inline-block px-8 py-4.5 bg-blue-600 text-white rounded-2xl font-black shadow-xl shadow-blue-200 hover:bg-blue-700 transition-all text-sm uppercase tracking-widest">
+            Get Started — Book a Call
+          </a>
+        </div>
+      </div>
+    </div>
+  );
 
   const renderContact = () => (
     <div className="pt-24 sm:pt-32 pb-20 px-6 animate-in fade-in duration-700">
@@ -230,6 +275,7 @@ const App: React.FC = () => {
       <main className="relative z-10">
         {currentPage === 'home' && renderHome()}
         {['voice-receptionist', 'lead-generation', 'text-messaging'].includes(currentPage) && renderServicePage(currentPage)}
+        {currentPage === 'software-and-web' && renderPortfolio()}
         {currentPage === 'contact' && renderContact()}
       </main>
 
@@ -256,6 +302,8 @@ const App: React.FC = () => {
               <li><button onClick={() => setCurrentPage('voice-receptionist')} className="hover:text-blue-600 transition-colors">Voice Receptionist</button></li>
               <li><button onClick={() => setCurrentPage('lead-generation')} className="hover:text-blue-600 transition-colors">Lead Generation</button></li>
               <li><button onClick={() => setCurrentPage('text-messaging')} className="hover:text-blue-600 transition-colors">Text Messaging</button></li>
+              <li><button onClick={() => setCurrentPage('software-and-web')} className="hover:text-blue-600 transition-colors">Software Development</button></li>
+              <li><button onClick={() => setCurrentPage('software-and-web')} className="hover:text-blue-600 transition-colors">Websites</button></li>
             </ul>
           </div>
           
